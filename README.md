@@ -8,7 +8,7 @@
 		- network interfaces (same config for all VMs within HV)
 			- **eth0**: 172.17.80.0/28, internet access (Default Switch)
 			- **eth1**: 172.28.160.0/28, no internet access (Internal Switch)
-		- virtual machines and exposed ports
+		- virtual machines and their exposed ports
 			- jenkins-main (172.28.160.2)
 				- port 8080
 			- jenkins-node (172.28.160.3)
@@ -18,6 +18,7 @@
 				- port 6379
 			- roadrunner (172.28.160.6)
 				- port 8080
+      			- all exposed ports are available only via eth1 interface (as in 172.28.160.0/28 subnet), the exception being docker container for roadrunner/app project which would normally be exposed either on eth0 interface or would have iptables pre-routing rule for forwarding incoming traffic to port 8080 (depending on the deployment method)
 		- for the sake of simplicity and the fact I'm using Hyper-V homelab, I refrained from setting up HTTPS certificates throughout the Internal Switch network (which would be self-signed anyway). under normal circumstances Jenkins main node would have a dedicated FQDN name with a proper Let's Encrypt certificate (preferably issued by certbot)
 		
 deployment procedure:
