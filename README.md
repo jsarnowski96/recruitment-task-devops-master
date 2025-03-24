@@ -128,7 +128,7 @@
 					rm secret-file
 					exit 0
 					```
-	    				- `sudo chmod +x /usr/local/jenkins-service/start-agent.sh`
+					- `sudo chmod +x /usr/local/jenkins-service/start-agent.sh`
      				- create and enable systemd service
 					- `sudo nano /etc/systemd/system/jenkins-agent.service`
 					```
