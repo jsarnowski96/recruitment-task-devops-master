@@ -130,35 +130,35 @@
 					```
 					- `sudo chmod +x /usr/local/jenkins-service/start-agent.sh`
      				- create and enable systemd service
-					- `sudo nano /etc/systemd/system/jenkins-agent.service`
-					```
-					[Unit]
-					Description=Jenkins Agent
-					
-					[Service]
-					User=jenkins
-					Group=jenkins
-					WorkingDirectory=/var/lib/jenkins
-					ExecStart=/bin/bash /usr/local/jenkins-service/start-agent.sh
-					Restart=always
-					
-					[Install]
-					WantedBy=multi-user.target
-					```
-					- `sudo systemctl daemon-reload`
-					- `sudo systemctl enable jenkins-agent.service`
-					- `sudo service jenkins-agent start`
-	- setup pipeline
-	```
-	composer update
-	composer test
-	composer stan
-	composer cs
-	composer cs-fix
-	export PATH/usr/bin:$PATH
-	export DOCKER_HOST=unix:///run/user/1001/docker.sock
-	...
-	```
+						- `sudo nano /etc/systemd/system/jenkins-agent.service`
+						```
+						[Unit]
+						Description=Jenkins Agent
+						
+						[Service]
+						User=jenkins
+						Group=jenkins
+						WorkingDirectory=/var/lib/jenkins
+						ExecStart=/bin/bash /usr/local/jenkins-service/start-agent.sh
+						Restart=always
+						
+						[Install]
+						WantedBy=multi-user.target
+						```
+						- `sudo systemctl daemon-reload`
+						- `sudo systemctl enable jenkins-agent.service`
+						- `sudo service jenkins-agent start`
+		- setup pipeline
+		```
+		composer update
+		composer test
+		composer stan
+		composer cs
+		composer cs-fix
+		export PATH/usr/bin:$PATH
+		export DOCKER_HOST=unix:///run/user/1001/docker.sock
+		...
+		```
 - docker setup
 	- `sudo apt install ca-certificates curl`
 	- `sudo install -m 0755 -d /etc/apt/keyrings`
