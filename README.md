@@ -1,22 +1,24 @@
 # recruitment-task-devops-master
 -----------------------------
 - local architecture
-	- network interfaces
-		- eth0: 172.17.80.0/28, internet access (ip pool managed by HV default switch)
-		- eth1: 172.28.160.0/28, no internet access
-	- os: Ubuntu 24.04 LTS
-	- virtual machines
-		- jenkins-main (172.28.160.2)
-			- port 8080
-		- jenkins-node (172.28.160.3)
-		- postgres (172.28.160.4)
-			- port 5432
-		- redis (172.28.160.5)
-			- port 6379
-		- roadrunner (172.28.160.6)
-			- port 8080
-	- environment
-		- for the sake of simplicity and the fact I'm using Hyper-V homelab, I refrained from setting up HTTPS certificates throughout the Internal Switch network (which would be self-signed anyway). in normal circumstance jenkins main node would have a dedicated FQDN name with a proper Let's Encrypt certificate (preferably issued by certbot)
+	- environment specification
+   		- hypervisor: Microsoft Hyper-V
+   		- gen. 1 virtual machines deployed with two attached network interfaces - one for internet access, one for accessing services within local private subnet
+     		- os: Ubuntu 24.04 LTS
+       		- network interfaces (same config for all VMs within HV)
+			- **eth0**: 172.17.80.0/28, internet access (Default Switch)
+			- **eth1**: 172.28.160.0/28, no internet access (Internal Switch)
+		- virtual machines and exposed ports
+			- jenkins-main (172.28.160.2)
+				- port 8080
+			- jenkins-node (172.28.160.3)
+			- postgres (172.28.160.4)
+				- port 5432
+			- redis (172.28.160.5)
+				- port 6379
+			- roadrunner (172.28.160.6)
+				- port 8080
+		- for the sake of simplicity and the fact I'm using Hyper-V homelab, I refrained from setting up HTTPS certificates throughout the Internal Switch network (which would be self-signed anyway). under normal circumstances Jenkins main node would have a dedicated FQDN name with a proper Let's Encrypt certificate (preferably issued by certbot)
 		
 deployment procedure:
 - basic server configuration (common)
