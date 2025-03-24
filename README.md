@@ -4,8 +4,8 @@
 	- environment specification
    		- hypervisor: Microsoft Hyper-V
    		- gen. 1 virtual machines deployed with two attached network interfaces - one for internet access, one for accessing services within local private subnet
-     		- os: Ubuntu 24.04 LTS
-       		- network interfaces (same config for all VMs within HV)
+		- os: Ubuntu 24.04 LTS
+		- network interfaces (same config for all VMs within HV)
 			- **eth0**: 172.17.80.0/28, internet access (Default Switch)
 			- **eth1**: 172.28.160.0/28, no internet access (Internal Switch)
 		- virtual machines and exposed ports
