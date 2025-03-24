@@ -21,7 +21,7 @@
 			- roadrunner (`172.28.160.6`)
 				- port `8080`
      		- all exposed ports are available only via **eth1 interface** (as in `172.28.160.0/28` subnet), the exception being docker container for roadrunner/app project which would normally be exposed either on eth0 interface or it would have iptables pre-routing rule for forwarding incoming traffic to port 8080 (depending on the deployment method)
-		- for the sake of simplicity and the fact I'm using Hyper-V homelab, I refrained from setting up HTTPS certificates throughout the Internal Switch network (which would be self-signed anyway). under normal circumstances Jenkins main node would have a dedicated FQDN name with a proper Let's Encrypt certificate (preferably issued by certbot)
+		- for the sake of simplicity and the fact I'm using Hyper-V homelab, I refrained from setting up HTTPS certificates throughout the Internal Switch network (which would be self-signed anyway). under normal circumstances Jenkins main node would have a dedicated FQDN with a proper Let's Encrypt certificate (preferably issued by certbot)
  
 ![Local Architecture](https://github.com/user-attachments/assets/e03afc50-b948-4d4e-aa0c-a1df5861e8b8)
 
