@@ -1,5 +1,7 @@
 # recruitment-task-devops-master
 -----------------------------
+
+## Intro
 - local architecture
 	- environment specification
    		- hypervisor: Microsoft Hyper-V
@@ -21,7 +23,7 @@
       			- all exposed ports are available only via eth1 interface (as in 172.28.160.0/28 subnet), the exception being docker container for roadrunner/app project which would normally be exposed either on eth0 interface or would have iptables pre-routing rule for forwarding incoming traffic to port 8080 (depending on the deployment method)
 		- for the sake of simplicity and the fact I'm using Hyper-V homelab, I refrained from setting up HTTPS certificates throughout the Internal Switch network (which would be self-signed anyway). under normal circumstances Jenkins main node would have a dedicated FQDN name with a proper Let's Encrypt certificate (preferably issued by certbot)
 		
-deployment procedure:
+## Deployment procedure
 - basic server configuration (common)
 	- HV-specific config (post-installation):
 		- /etc/netplan/50-cloud-init.yaml
